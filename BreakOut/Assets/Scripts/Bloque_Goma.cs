@@ -8,10 +8,11 @@ public class Bloque_Goma : Bloque
     void Start()
     {
 	    resistencia = 7;
+	    res = resistencia;
     }
     
-	public override void RebotarBola()
+	public override void RebotarBola(Collision col)
 	{
-		base.RebotarBola();
+		base.RebotarBola(col);
 	}
 }

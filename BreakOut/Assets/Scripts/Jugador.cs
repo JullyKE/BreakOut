@@ -62,5 +62,15 @@ public class Jugador : MonoBehaviour
 	    }
 
 	    transform.position = pos;
-    }
+	}
+    
+	public void OnCollisionEnter(Collision col)
+	{
+		if (col.gameObject.CompareTag("Bola"))
+		{
+			Vector3 direccion = col.contacts[0].point - transform.position;
+			direccion = direccion.normalized;
+			col.rigidbody.velocity = col.gameObject.GetComponent<Bola>().ballSpeed * direccion;
+		}
+	}
 }

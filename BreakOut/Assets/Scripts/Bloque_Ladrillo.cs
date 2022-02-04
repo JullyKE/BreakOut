@@ -7,11 +7,12 @@ public class Bloque_Ladrillo: Bloque
     // Start is called before the first frame update
     void Start()
     {
-	    resistencia = 2;
+	    resistencia = 3;
+	    res = resistencia;
     }
     
-	public override void RebotarBola()
+	public override void RebotarBola(Collision col)
 	{
-		base.RebotarBola();
+		base.RebotarBola(col);
 	}
 }
