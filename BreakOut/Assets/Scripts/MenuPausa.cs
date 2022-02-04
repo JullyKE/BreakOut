@@ -1,0 +1,42 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MenuPausa : MonoBehaviour
+{
+	public GameObject menuPausa;
+	public GameObject menuOpciones;
+	public AdministradorBloques adminBloques;
+	
+	void Start()
+	{
+		adminBloques = GameObject.Find("AdministradorDeBloques").GetComponent<AdministradorBloques>();
+	}
+	
+	public void MostrarMenPausa()
+	{
+		menuPausa.SetActive(true);
+		if (menuOpciones.activeInHierarchy)
+		{
+			menuOpciones.SetActive(false);
+		}
+		adminBloques.CambiarResistencias();
+		
+	}
+	public void OcultarMenuPausa()
+	{
+		menuPausa.SetActive(false);
+	}
+	
+	public void RegresarAPantallaPrincipal()
+	{
+		SceneManager.LoadScene(0);
+	}
+	
+	public void MostrarMenuOpciones()
+	{
+		menuPausa.SetActive(false);
+		menuOpciones.SetActive(true);
+	}
+}
